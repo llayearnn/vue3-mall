@@ -10,7 +10,7 @@
     "lint": "eslint src",
     "fix": "eslint src --fix",
     "prepare": "husky install",
-    "commitlint": "commitlint --config commitlint.config.cjs -e -V"
+    "preinstall": "node ./scripts/preinstall.js"
   },
   "dependencies": {
     "vue": "^3.3.4"
