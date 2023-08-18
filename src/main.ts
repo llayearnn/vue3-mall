@@ -9,6 +9,7 @@ import 'virtual:svg-icons-register'
 // 注册全局组件
 import globalComponent from '@/components/index'
 import App from '@/App.vue'
+import '@/styles/index.scss'
 
 const app = createApp(App)
 

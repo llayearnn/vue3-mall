@@ -7,7 +7,7 @@
     <el-button type="warning" :icon="Star" circle />
     <el-button type="danger" :icon="Delete" circle />
   </el-row>
-
+  <h1>测试scss样式</h1>
   <svg-com
     name="phone"
     style="background-color: red; height: 100px; width: 100px"
@@ -24,4 +24,8 @@ import {
   Star,
 } from '@element-plus/icons-vue'
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h1 {
+  color: $color;
+}
+</style>
