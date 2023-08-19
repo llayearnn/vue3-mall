@@ -17,6 +17,11 @@ app.use(ElementPlus, {
   locale: zhCn,
 })
 
+// import { reqLogin } from '@/api/user'
+// reqLogin({ username: '111', password: '123456' }).then((userInfo) => {
+//   console.log('userInfo ', userInfo)
+// })
+
 app.use(globalComponent)
 // console.log(import.meta.env)
 app.mount('#app')
