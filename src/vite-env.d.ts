@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+// 三斜线指令： 指定依赖的的其他类型声明文件 types表示依赖的类型声明文件包名称
 declare module '*.vue' {
   import { DefineComponent } from 'vue'
   // eslint-disable-next-line @typescript-eslint/ban-types
