@@ -12,6 +12,8 @@ import App from '@/App.vue'
 import '@/styles/index.scss'
 import router from './routers/index'
 
+import pinia from './store'
+
 const app = createApp(App)
 
 app.use(ElementPlus, {
@@ -23,6 +25,8 @@ app.use(ElementPlus, {
 //   console.log('userInfo ', userInfo)
 // })
 app.use(router)
+app.use(pinia)
+
 app.use(globalComponent)
 // console.log(import.meta.env)
 app.mount('#app')
