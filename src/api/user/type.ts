@@ -11,7 +11,7 @@ export interface ResponseData {
 }
 type DataType = {
   token: string
-  message: string
+  message?: string
 }
 export interface LoginResponseData extends ResponseData {
   data: DataType

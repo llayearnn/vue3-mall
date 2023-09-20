@@ -4,13 +4,13 @@ import {
   // createWebHashHistory,
   createWebHistory,
 } from 'vue-router'
-import { constantRouts } from './router'
+import { constantRoute } from './router'
 
 const router = createRouter({
   // 路由模式
   history: createWebHistory(),
   // history: createWebHashHistory(),
-  routes: constantRouts,
+  routes: constantRoute,
   // 滚动行为
   scrollBehavior() {
     return {

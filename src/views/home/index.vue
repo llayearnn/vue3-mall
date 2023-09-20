@@ -1,75 +1,60 @@
+<script setup lang="ts">
+import { getTime } from '@/utils/time'
+import { useUserStore } from '@/store/modules/user'
+let userStore = useUserStore()
+</script>
 <template>
-  <div class="login_layout">
-    <el-row>
-      <el-col :span="12" :xs="0"></el-col>
-      <el-col :span="12" :xs="24">
-        <el-form class="login_form">
-          <h1>welcome</h1>
-          <h2>lay商城</h2>
-          <el-form-item>
-            <el-input
-              :prefix-icon="User"
-              v-model="loginForm.username"
-              placeholder=""
-            ></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-input
-              :prefix-icon="Lock"
-              type="password"
-              show-password
-              v-model="loginForm.password"
-              placeholder=""
-            ></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button class="login_btn" type="primary" @click="login">
-              登录
-            </el-button>
-          </el-form-item>
-        </el-form>
-      </el-col>
-    </el-row>
+  <el-card>
+    <div class="box">
+      <img :src="userStore.avatar" alt="" class="avatar" />
+      <div class="footer">
+        <h3 class="title">
+          {{ getTime() }}好~
+          <span class="gradient">{{ userStore.username }}</span>
+        </h3>
+        <p class="subtitle">Vue-Admin1111111</p>
+      </div>
+    </div>
+  </el-card>
+  <div class="bottom">
+    <def-svg-icon name="welcome" width="600px" height="300px"></def-svg-icon>
   </div>
 </template>
-
-<script setup lang="ts">
-import { User, Lock } from '@element-plus/icons-vue'
-import { reactive } from 'vue'
-
-const loginForm = reactive({
-  username: 'admin',
-  password: '111111',
-})
-const login = () => {
-  console.log(1111)
-}
-</script>
-
 <style lang="scss" scoped>
-.login_layout {
-  height: 100vh;
-  // width: 100vw;
-  // width: 100%;
-  background: url('@/assets/images/background1.jpg') no-repeat;
-  background-size: cover;
-  .login_form {
-    position: relative;
-    top: 30vh;
-    width: 80%;
-    padding: 40px;
-    h1 {
-      font-size: 40px;
-      color: wheat;
+.box {
+  display: flex;
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .footer {
+    margin-left: 20px;
+    margin-top: 15px;
+    .title {
+      font-size: 35px;
+      margin-bottom: 30px;
+      font-weight: 900;
+      .gradient {
+        background: linear-gradient(to right, #001529, #001529, #ffffff);
+        /* 渐变方向是从左到右，颜色从红色到绿色 */
+        background-clip: text;
+        -webkit-background-clip: text; /* 兼容WebKit浏览器（例如Chrome和Safari） */
+        color: transparent;
+        font-size: 24px;
+        font-weight: bold;
+      }
     }
-    h2 {
-      font-size: 20px;
-      color: white;
-      margin: 20px 0;
-    }
-    .login_btn {
-      width: 100%;
+    .subtitle {
+      font-style: italic;
+      color: #ccc;
+      font-weight: 700;
     }
   }
+}
+.bottom {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 </style>

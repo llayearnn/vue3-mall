@@ -37,21 +37,32 @@
 import { User, Lock } from '@element-plus/icons-vue'
 import { reactive } from 'vue'
 import { useUserStore } from '@/store/modules/user'
-import { ElMessage } from 'element-plus'
-
+import { useRouter } from 'vue-router'
+import { ElMessage, ElNotification } from 'element-plus'
+import { getTime } from '@/utils/time'
 const loginForm = reactive({
   username: 'admin',
   password: '123456',
 })
 const userStore = useUserStore()
+const $router = useRouter()
 
 const login = async () => {
-  const res = await userStore.userLogin(loginForm)
-  if (res == 'ok') {
-    ElMessage.success('登录成功')
-  } else {
-    console.log(res)
-    // ElMessage.error('登录失败, 密码错误.')
+  try {
+    const res = await userStore.userLogin(loginForm)
+    if (res == 'ok') {
+      ElNotification.success({
+        type: 'success',
+        message: '欢迎回来',
+        title: `Hi,${getTime()}好`,
+      })
+      $router.push('./')
+    } else {
+      console.log(res)
+      // ElMessage.error('登录失败, 密码错误.')
+    }
+  } catch (error) {
+    ElMessage.error('登录失败, 密码错误.')
   }
 }
 </script>
