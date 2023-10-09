@@ -2,7 +2,11 @@
   <template v-for="(item, index) in menuList" :key="item.path">
     <!-- 没有子路由 -->
     <template v-if="!item.children">
-      <el-menu-item v-if="!item.meta.hidden" :index="item.path">
+      <el-menu-item
+        @click="goRoute"
+        v-if="!item.meta.hidden"
+        :index="item.path"
+      >
         <el-icon>
           <component :is="item.meta.icon"></component>
         </el-icon>
@@ -16,6 +20,7 @@
       <el-menu-item
         v-if="!item.children[0].meta.hidden"
         :index="item.children[0].path"
+        @click="goRoute"
       >
         <el-icon>
           <component :is="item.children[0].meta.icon"></component>
@@ -41,7 +46,14 @@
   </template>
 </template>
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 defineProps(['menuList'])
+const $router = useRouter()
+
+const goRoute = (item: any) => {
+  console.log(' item', item.index)
+  $router.push(item.index)
+}
 </script>
 <script lang="ts">
 export default {

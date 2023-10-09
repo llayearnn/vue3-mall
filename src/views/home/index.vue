@@ -12,17 +12,18 @@ let userStore = useUserStore()
           {{ getTime() }}好~
           <span class="gradient">{{ userStore.username }}</span>
         </h3>
-        <p class="subtitle">Vue-Admin1111111</p>
+        <p class="subtitle">Vue-Admin</p>
       </div>
     </div>
   </el-card>
   <div class="bottom">
-    <def-svg-icon name="welcome" width="600px" height="300px"></def-svg-icon>
+    <!-- <def-svg-icon name="welcome" width="600px" height="300px"></def-svg-icon> -->
   </div>
 </template>
 <style lang="scss" scoped>
 .box {
   display: flex;
+  // width: 100%;
   .avatar {
     width: 100px;
     height: 100px;
