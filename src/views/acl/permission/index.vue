@@ -6,7 +6,7 @@
  * @LastEditTime: 2023-06-01 19:51:29
 -->
 <script setup lang="ts">
-import { ref, onMounted, reactive } from 'vue'
+import { ref, onMounted, onBeforeMount, reactive } from 'vue'
 import {
   reqAllPermission,
   reqAddOrUpdateMenu,
@@ -27,10 +27,11 @@ let menuData = reactive<MenuParams>({
   name: '',
   pid: 0,
 })
-
-onMounted(() => {
-  getHasPermission()
-})
+onBeforeMount(() => {}),
+  onMounted(() => {
+    console.log(' ', 123)
+    getHasPermission()
+  })
 
 const getHasPermission = async () => {
   let res: PermissionResponseData = await reqAllPermission()

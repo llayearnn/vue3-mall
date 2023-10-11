@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ArrowRight, Fold, Expand } from '@element-plus/icons-vue'
-// import useLayOutSettingStore from '@/store/modules/setting'
-// let LayOutSettingStore = useLayOutSettingStore()
+import useLayOutSettingStore from '@/store/modules/setting'
+let LayOutSettingStore = useLayOutSettingStore()
 const changeIcon = () => {
-  // LayOutSettingStore.isCollapse = !LayOutSettingStore.isCollapse
+  LayOutSettingStore.isCollapse = !LayOutSettingStore.isCollapse
 }
 </script>
 <template>
@@ -12,7 +12,7 @@ const changeIcon = () => {
     size="20px"
     @click="changeIcon"
   >
-    <!-- <component :is="LayOutSettingStore.isCollapse ? Expand : Fold"></component> -->
+    <component :is="LayOutSettingStore.isCollapse ? Expand : Fold"></component>
   </el-icon>
   <el-breadcrumb separator="/" :separator-icon="ArrowRight">
     <el-breadcrumb-item

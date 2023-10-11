@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { getTime } from '@/utils/time'
 import { useUserStore } from '@/store/modules/user'
+// import { onBeforeMount } from 'vue'
 let userStore = useUserStore()
+// onBeforeMount(() => {
+//   console.log('111 ', 111)
+// })
 </script>
 <template>
   <el-card>

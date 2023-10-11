@@ -13,7 +13,7 @@ export const constantRoute = [
     component: () => import('@/layout/index.vue'),
     name: 'layout', //命名路由
     meta: {
-      title: 'layout',
+      // title: 'layout',
       hidden: true,
       icon: '',
     },

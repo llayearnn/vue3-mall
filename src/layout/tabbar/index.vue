@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BreadCrumb from './breadcrumb/index.vue'
-// import Setting from './setting/index.vue'
+import Setting from './setting/index.vue'
 </script>
 <template>
   <el-header style="text-align: right; font-size: 12px">
@@ -9,7 +9,7 @@ import BreadCrumb from './breadcrumb/index.vue'
         <BreadCrumb />
       </div>
       <div class="toolbar_right">
-        <!-- <Setting /> -->
+        <Setting />
       </div>
     </div>
   </el-header>

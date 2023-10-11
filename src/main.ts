@@ -20,11 +20,6 @@ app.use(ElementPlus, {
   locale: zhCn,
 })
 
-// import { reqLogin } from '@/api/user'
-// reqLogin({ username: '111', password: '123456' }).then((userInfo) => {
-//   console.log('userInfo ', userInfo)
-// })
-console.log(router)
 app.use(router)
 app.use(pinia)
 

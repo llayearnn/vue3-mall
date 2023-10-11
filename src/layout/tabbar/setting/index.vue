@@ -8,11 +8,11 @@ import {
 } from '@element-plus/icons-vue'
 import useLayOutSettingStore from '@/store/modules/setting'
 let layoutSettingStore = useLayOutSettingStore()
-import useUserStore from '@/store/modules/user'
+// import useUserStore from '@/store/modules/user'
 import { useRouter, useRoute } from 'vue-router'
 let $router = useRouter()
 let $route = useRoute()
-let userStore = useUserStore()
+// let userStore = useUserStore()
 let dark = ref<boolean>(false)
 const updateRefsh = () => {
   layoutSettingStore.refsh = !layoutSettingStore.refsh
@@ -28,7 +28,7 @@ const fullScreen = () => {
 }
 
 const logout = async () => {
-  await userStore.userLogout()
+  // await userStore.userLogout()
   $router.push({ path: '/login', query: { redirect: $route.path } })
 }
 
@@ -90,10 +90,10 @@ const setColor = () => {
     </template>
   </el-popover>
 
-  <img :src="userStore.avatar" alt="" />
+  <!-- <img :src="userStore.avatar" alt="" /> -->
   <el-dropdown>
     <span class="el-dropdown-link" style="cursor: pointer">
-      {{ userStore.username }}
+      <!-- {{ userStore.username }} -->
       <el-icon class="el-icon--right">
         <arrow-down />
       </el-icon>
