@@ -37,15 +37,18 @@
 import { User, Lock } from '@element-plus/icons-vue'
 import { reactive } from 'vue'
 import { useUserStore } from '@/store/modules/user'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ElMessage, ElNotification } from 'element-plus'
 import { getTime } from '@/utils/time'
 const loginForm = reactive({
+  // username: 'admin',
+  // password: '123456',
   username: 'admin',
-  password: '123456',
+  password: 'atguigu123',
 })
 const userStore = useUserStore()
 const $router = useRouter()
+let $route = useRoute()
 
 const login = async () => {
   try {
@@ -56,7 +59,10 @@ const login = async () => {
         message: '欢迎回来',
         title: `Hi,${getTime()}好`,
       })
-      $router.push('./')
+      // 判断有没有query参数 如果有则重定向
+      let redirect: string = $route.query.redirect as string
+      $router.push({ path: redirect || '/' })
+      // $router.push('./')
     } else {
       console.log(res)
       // ElMessage.error('登录失败, 密码错误.')

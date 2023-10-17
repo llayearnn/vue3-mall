@@ -213,7 +213,7 @@ const search = () => {
 }
 
 const reset = () => {
-  settingStore.refsh = !settingStore.refsh
+  settingStore.refresh = !settingStore.refresh
 }
 </script>
 <template>

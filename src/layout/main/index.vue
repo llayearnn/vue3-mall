@@ -5,7 +5,7 @@ let layOutSettingStore = useLayOutSettingStore()
 
 let flag = ref(true)
 watch(
-  () => layOutSettingStore.refsh,
+  () => layOutSettingStore.refresh,
   () => {
     flag.value = false
     // setTimeout(() => {

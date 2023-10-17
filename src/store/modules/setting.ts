@@ -4,7 +4,7 @@ const useLayOutSettingStore = defineStore('SettingStore', {
   state: () => {
     return {
       isCollapse: false,
-      refsh: false,
+      refresh: false,
     }
   },
 })

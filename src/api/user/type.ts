@@ -9,12 +9,13 @@ export interface ResponseData {
   message?: string
   ok?: boolean
 }
-type DataType = {
-  token: string
-  message?: string
-}
+// type DataType = {
+//   token: string
+//   message?: string
+//   data: string
+// }
 export interface LoginResponseData extends ResponseData {
-  data: DataType
+  data: string
 }
 
 export interface userInfoResponseData extends ResponseData {

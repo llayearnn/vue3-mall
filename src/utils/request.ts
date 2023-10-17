@@ -1,7 +1,7 @@
 // 二次封装axios
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-// import useUserStore from '@/store/modules/user'
+import { useUserStore } from '@/store/modules/user'
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 2000,
@@ -9,11 +9,11 @@ const request = axios.create({
 // 请求拦截器
 request.interceptors.request.use(
   (config) => {
-    // let userStore = useUserStore()
+    const userStore = useUserStore()
 
-    // if (userStore.token) {
-    //   config.headers.token = userStore.token
-    // }
+    if (userStore.token) {
+      config.headers.token = userStore.token
+    }
 
     return config
   },
@@ -24,7 +24,6 @@ request.interceptors.request.use(
 
 request.interceptors.response.use(
   (response) => {
-    // debugger
     if (response.status === 200) {
       return Promise.resolve(response.data)
     } else {
