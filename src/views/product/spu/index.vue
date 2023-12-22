@@ -196,7 +196,7 @@ onBeforeUnmount(() => {
         <el-table-column label="SKU价格" prop="price"></el-table-column>
         <el-table-column label="SKU重量" prop="weight"></el-table-column>
         <el-table-column label="SKU图片">
-          <template #="{ row, $index }">
+          <template v-slot="{ row }">
             <img
               :src="row.skuDefaultImg"
               alt=""

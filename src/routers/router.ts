@@ -91,7 +91,7 @@ export const constantRoute = [
       },
       {
         path: '/acl/permission',
-        // component: () => import('@/views/acl/permission/index.vue'),
+        component: () => import('@/views/acl/permission/index.vue'),
         name: 'Permission',
         meta: {
           title: '菜单管理',
@@ -134,7 +134,7 @@ export const constantRoute = [
       },
       {
         path: '/product/spu',
-        // component: () => import('@/views/product/spu/index.vue'),
+        component: () => import('@/views/product/spu/index.vue'),
         name: 'Spu',
         meta: {
           title: 'Spu',
@@ -232,7 +232,7 @@ export const asyncRoute = [
       },
       {
         path: '/product/spu',
-        // component: () => import('@/views/product/spu/index.vue'),
+        component: () => import('@/views/product/spu/index.vue'),
         name: 'Spu',
         meta: {
           title: 'Spu',

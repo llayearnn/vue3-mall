@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import { getTime } from '@/utils/time'
 import { useUserStore } from '@/store/modules/user'
-import { onBeforeMount } from 'vue'
+import { ref, onBeforeMount } from 'vue'
+import { useDraggable } from '@vueuse/core'
 let userStore = useUserStore()
+const el = ref<HTMLElement | null>(null)
+const { x, y, style } = useDraggable(el, {
+  // initialValue: { x: 40, y: 40 },
+})
 onBeforeMount(() => {
   // userStore.userInfo()
 })
 </script>
 <template>
   <el-card>
-    <div class="box">
+    <div class="box" ref="el" :style="style">
+      Drag me! I am at {{ x }}, {{ y }}
       <img :src="userStore.avatar" alt="" class="avatar" />
       <div class="footer">
         <h3 class="title">

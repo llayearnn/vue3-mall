@@ -18,7 +18,7 @@ import './permission'
 const app = createApp(App)
 
 app.use(ElementPlus, {
-  locale: zhCn,
+  // locale: zhCn,
 })
 
 app.use(router)

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ElMessage } from 'element-plus'
 import useCategoryStore from '@/store/modules/category'
 let categoryStore = useCategoryStore()
 import { watch, ref, reactive, nextTick, onBeforeUnmount } from 'vue'
@@ -6,7 +7,7 @@ import { reqAttr, reqAddOrUpdateAttr, reqRemoveAttr } from '@/api/product/attr'
 import type { AttrResponseData, Attr, AttrValue } from '@/api/product/attr/type'
 let attrArr = ref<Attr[]>([])
 let scene = ref<number>(0)
-let flag = ref<boolean>(true)
+// const flag = ref<boolean>(true)
 let attrParams = reactive<Attr>({
   attrName: '',
   attrValueList: [],
@@ -128,6 +129,7 @@ const deleteAttr = async (attrId: number) => {
 }
 
 onBeforeUnmount(() => {
+  // 清空仓库
   categoryStore.$reset()
 })
 </script>
@@ -153,10 +155,10 @@ onBeforeUnmount(() => {
         ></el-table-column>
         <el-table-column label="属性名称" prop="attrName"></el-table-column>
         <el-table-column label="属性值名称">
-          <template #="{ row, $index }">
+          <template v-slot="{ row }">
             <el-tag
               style="margin: 5px"
-              v-for="(item, index) in row.attrValueList"
+              v-for="item in row.attrValueList"
               :key="item.id"
             >
               {{ item.valueName }}
@@ -164,7 +166,7 @@ onBeforeUnmount(() => {
           </template>
         </el-table-column>
         <el-table-column label="操作">
-          <template #="{ row, $index }">
+          <template v-slot="{ row }">
             <el-button
               type="primary"
               size="small"
@@ -211,7 +213,7 @@ onBeforeUnmount(() => {
           align="center"
         ></el-table-column>
         <el-table-column label="属性值名称">
-          <template #="{ row, $index }">
+          <template v-slot="{ row, $index }">
             <el-input
               :ref="(vc: any) => (inputArr[$index] = vc)"
               v-if="row.flag"

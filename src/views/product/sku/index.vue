@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ElMessage } from 'element-plus'
 import { ref, onMounted } from 'vue'
 import {
   reqSkuList,
@@ -97,7 +98,7 @@ const removeSku = async (id: number) => {
         prop="skuDesc"
       ></el-table-column>
       <el-table-column label="图片" width="250px">
-        <template #="{ row, $index }">
+        <template v-slot="{ row }">
           <img
             :src="row.skuDefaultImg"
             alt=""
@@ -116,7 +117,7 @@ const removeSku = async (id: number) => {
         prop="price"
       ></el-table-column>
       <el-table-column label="操作" fixed="right" width="450px">
-        <template #="{ row, $index }">
+        <template v-slot="{ row }">
           <el-button
             size="small"
             :icon="row.isSale === 1 ? 'Bottom' : 'Top'"

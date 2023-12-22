@@ -4,7 +4,7 @@ import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/store/modules/user'
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
-  timeout: 2000,
+  timeout: 1000000,
 })
 // 请求拦截器
 request.interceptors.request.use(
@@ -32,6 +32,7 @@ request.interceptors.response.use(
   },
   (error) => {
     let message = ''
+    console.log(error)
     const status = error.response.status
     switch (status) {
       // 401: 未登录

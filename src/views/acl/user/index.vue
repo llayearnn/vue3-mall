@@ -16,6 +16,7 @@ import type {
   AllRole,
   SetRoleData,
 } from '@/api/acl/user/type'
+import { ElMessage } from 'element-plus'
 import useLayOutSettingStore from '@/store/modules/setting'
 let pageNo = ref<number>(1)
 
@@ -88,7 +89,8 @@ const updateUser = (row: User) => {
 }
 
 const save = async () => {
-  formRef.value.validate()
+  await formRef.value.validate()
+  // console.log(res111)
   let res: any = await reqAddOrUpdateUser(userParams)
   if (res.code === 200) {
     drawer.value = false
@@ -96,7 +98,8 @@ const save = async () => {
       type: 'success',
       message: userParams.id ? '更新成功' : '添加成功',
     })
-    window.location.reload()
+    getHasUser()
+    // window.location.reload()
   } else {
     drawer.value = false
     ElMessage({
@@ -364,7 +367,8 @@ const reset = () => {
     <template #default>
       <el-form>
         <el-form-item label="用户姓名">
-          <el-input v-model="userParams.username" :disabled="true"></el-input>
+          <!-- <el-input v-model="userParams.username" :disabled="true"></el-input> -->
+          <span>{{ userParams.username }}</span>
         </el-form-item>
         <el-form-item label="职位列表">
           <el-checkbox

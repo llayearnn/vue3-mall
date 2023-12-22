@@ -21,10 +21,13 @@ export const reqAttr = (
   category1Id: number | string,
   category2Id: number | string,
   category3Id: number | string,
-) =>
-  request.get<any, AttrResponseData>(
+) => {
+  const res = request.get<any, AttrResponseData>(
     API.ATTR_URL + `${category1Id}/${category2Id}/${category3Id}`,
   )
+
+  return res
+}
 
 export const reqAddOrUpdateAttr = (data: Attr) =>
   request.post<any, any>(API.ADDORUPDATEATTR_URL, data)
