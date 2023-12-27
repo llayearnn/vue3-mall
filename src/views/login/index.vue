@@ -1,5 +1,5 @@
 <template>
-  <div class="login_layout">
+  <div class="login_layout" h-full>
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">

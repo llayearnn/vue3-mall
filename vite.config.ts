@@ -1,5 +1,6 @@
 import { ConfigEnv, UserConfigExport, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
 import { viteMockServe } from 'vite-plugin-mock'
 import { resolve } from 'path'
 // 引入svg
@@ -13,6 +14,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     base: './',
     plugins: [
       vue(),
+      UnoCSS(),
       createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
         symbolId: 'icon-[dir]-[name]',
