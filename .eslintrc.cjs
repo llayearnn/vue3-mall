@@ -1,43 +1,39 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  // 规则继承
+  extends: [
+    'eslint:recommended', // 默认规则是关闭，开启推荐规则
+    'plugin:@typescript-eslint/recommended', // ts语法规则
+    'plugin:vue/vue3-essential', // vue3语法规则
+    './.eslintrc-auto-import.json', // 自动导入规则
+  ],
+  // 对特定的类型的文件指定处理器（markdown）
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
+      },
     },
-    // 规则继承
-    "extends": [
-        "eslint:recommended",// 默认规则是关闭，开启推荐规则
-        "plugin:@typescript-eslint/recommended",// ts语法规则
-        "plugin:vue/vue3-essential"// vue3语法规则
-    ],
-    // 对特定的类型的文件指定处理器（markdown）
-    "overrides": [
-        {
-            "env": {
-                "node": true
-            },
-            "files": [
-                ".eslintrc.{js,cjs}"
-            ],
-            "parserOptions": {
-                "sourceType": "script"
-            }
-        }
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "parser": "@typescript-eslint/parser",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint",
-        "vue"
-    ],
-    /*
-    * "off" 或 0    ==>  关闭规则
-    * "warn" 或 1   ==>  打开的规则作为警告（不影响代码执行）
-    * "error" 或 2  ==>  规则作为一个错误（代码不能执行，界面报错）
-    */
-    "rules": {
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint', 'vue'],
+  /*
+   * "off" 或 0    ==>  关闭规则
+   * "warn" 或 1   ==>  打开的规则作为警告（不影响代码执行）
+   * "error" 或 2  ==>  规则作为一个错误（代码不能执行，界面报错）
+   */
+  rules: {
     // eslint（https://eslint.bootcss.com/docs/rules/）
     'no-var': 'error', // 要求使用 let 或 const 而不是 var
     'no-multiple-empty-lines': ['warn', { max: 1 }], // 不允许多个空行
@@ -58,6 +54,6 @@ module.exports = {
     'vue/multi-word-component-names': 'off', // 要求组件名称始终为 “-” 链接的单词
     'vue/script-setup-uses-vars': 'error', // 防止<script setup>使用的变量<template>被标记为未使用
     'vue/no-mutating-props': 'off', // 不允许组件 prop的改变
-    'vue/attribute-hyphenation': 'off', // 对模板中的自定义组件强制执行属性命名样式     
-    }
+    'vue/attribute-hyphenation': 'off', // 对模板中的自定义组件强制执行属性命名样式
+  },
 }
