@@ -1,7 +1,9 @@
 import { ConfigEnv, UserConfigExport, loadEnv } from 'vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import { viteMockServe } from 'vite-plugin-mock'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
-import { viteMockServe } from 'vite-plugin-mock'
+
 import { resolve } from 'path'
 // 引入svg
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
@@ -21,6 +23,10 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       }),
       viteMockServe({
         localEnabled: command === 'serve', // 保证开发阶段可以用mock
+      }),
+      AutoImport({
+        // 可以自动全局引入全局依赖，减少重复引入 ref ,reactive,等
+        imports: ['vue', 'vue-router'],
       }),
     ],
     resolve: {
