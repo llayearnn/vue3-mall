@@ -113,7 +113,7 @@ const cancel = () => {
   drawer.value = false
 }
 
-const validatorUserName = (rule: any, value: any, callBack: any) => {
+const validatorUserName = (_: any, value: any, callBack: any) => {
   if (value.trim().length >= 5) {
     callBack()
   } else {
@@ -121,7 +121,7 @@ const validatorUserName = (rule: any, value: any, callBack: any) => {
   }
 }
 
-const validatorName = (rule: any, value: any, callBack: any) => {
+const validatorName = (_: any, value: any, callBack: any) => {
   if (value.trim().length >= 5) {
     callBack()
   } else {
@@ -129,7 +129,7 @@ const validatorName = (rule: any, value: any, callBack: any) => {
   }
 }
 
-const validatorPassword = (rule: any, value: any, callBack: any) => {
+const validatorPassword = (_: any, value: any, callBack: any) => {
   if (value.trim().length >= 5) {
     callBack()
   } else {
@@ -290,7 +290,7 @@ const reset = () => {
         show-overflow-tooltip
       ></el-table-column>
       <el-table-column label="操作" width="300px" align="center">
-        <template #="{ row, $index }">
+        <template #="{ row }">
           <el-button size="small" icon="User" @click="setRole(row)">
             分配角色
           </el-button>
@@ -367,7 +367,6 @@ const reset = () => {
     <template #default>
       <el-form>
         <el-form-item label="用户姓名">
-          <!-- <el-input v-model="userParams.username" :disabled="true"></el-input> -->
           <span>{{ userParams.username }}</span>
         </el-form-item>
         <el-form-item label="职位列表">

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeMount, reactive } from 'vue'
 import {
   reqAllPermission,
   reqAddOrUpdateMenu,
@@ -20,11 +19,11 @@ let menuData = reactive<MenuParams>({
   name: '',
   pid: 0,
 })
-onBeforeMount(() => {}),
-  onMounted(() => {
-    console.log(' ', 123)
-    getHasPermission()
-  })
+
+onMounted(() => {
+  console.log(' ', 123)
+  getHasPermission()
+})
 
 const getHasPermission = async () => {
   let res: PermissionResponseData = await reqAllPermission()
@@ -82,7 +81,7 @@ const removeMenu = async (id: number) => {
     <el-table-column prop="code" label="权限值" />
     <el-table-column prop="updateTime" label="修改时间" show-overflow-tooltip />
     <el-table-column label="操作" width="260px">
-      <template #="{ row, $index }">
+      <template #="{ row }">
         <el-button
           size="small"
           :disabled="row.level === 4 ? true : false"
@@ -142,4 +141,3 @@ const removeMenu = async (id: number) => {
     </template>
   </el-dialog>
 </template>
-<style lang="scss" scoped></style>

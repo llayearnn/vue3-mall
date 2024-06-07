@@ -131,7 +131,7 @@ onBeforeUnmount(() => {
           show-overflow-tooltip
         ></el-table-column>
         <el-table-column label="SPU操作">
-          <template #="{ row, $index }">
+          <template #="{ row }">
             <el-button
               icon="Plus"
               title="添加SKU"
@@ -208,4 +208,3 @@ onBeforeUnmount(() => {
     </el-dialog>
   </el-card>
 </template>
-<style lang="scss" scoped></style>

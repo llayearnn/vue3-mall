@@ -115,15 +115,12 @@ const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
   }
 }
 
-const handleAvatarSuccess: UploadProps['onSuccess'] = (
-  response,
-  uploadFile,
-) => {
+const handleAvatarSuccess: UploadProps['onSuccess'] = (response) => {
   trademarkParams.logoUrl = response.data
   formRef.value.clearValidate('logoUrl')
 }
 
-const validatorTmName = (rule: any, value: any, callBack: any) => {
+const validatorTmName = (_: any, value: any, callBack: any) => {
   if (value.trim().length >= 2) {
     callBack()
   } else {
@@ -131,7 +128,7 @@ const validatorTmName = (rule: any, value: any, callBack: any) => {
   }
 }
 
-const validatorLogoUrl = (rule: any, value: any, callBack: any) => {
+const validatorLogoUrl = (_: any, value: any, callBack: any) => {
   if (value) {
     callBack()
   } else {

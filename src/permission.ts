@@ -7,6 +7,8 @@ import { useUserStore } from './store/modules/user'
 nprogress.configure({ showSpinner: false })
 const userStore = useUserStore(pinia)
 router.beforeEach(async (to, from, next) => {
+  console.log(from)
+
   document.title = to.meta.title + ` | ${setting.title}`
   nprogress.start()
 
@@ -14,7 +16,7 @@ router.beforeEach(async (to, from, next) => {
   const username = userStore.username
   // 判断用户有没有登录
 
-  if (token) {
+  if (!token) {
     // 如果登录成功还想访问登录页，则不允许。重定向到首页
     if (to.path === '/login') {
       next({ path: '/' })
@@ -23,7 +25,7 @@ router.beforeEach(async (to, from, next) => {
         next()
       } else {
         try {
-          await userStore.userInfo()
+          // await userStore.userInfo()
           next()
           // next({ ...to })
           // token 过期

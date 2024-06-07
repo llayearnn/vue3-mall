@@ -197,7 +197,7 @@ defineExpose({ initHasSpuData, initAddSpu })
       <el-select v-model="SpuParams.tmId">
         <el-option
           :label="item.tmName"
-          v-for="(item, index) in AllTradeMark"
+          v-for="item in AllTradeMark"
           :value="item.id"
         ></el-option>
       </el-select>
@@ -241,7 +241,7 @@ defineExpose({ initHasSpuData, initAddSpu })
       >
         <el-option
           :label="item.name"
-          v-for="(item, index) in unSelectSaleAttr"
+          v-for="item in unSelectSaleAttr"
           :key="item.id"
           :value="`${item.id}:${item.name}`"
         ></el-option>
@@ -271,7 +271,7 @@ defineExpose({ initHasSpuData, initAddSpu })
         <el-table-column label="销售属性值">
           <template #="{ row, $index }">
             <el-tag
-              v-for="(item, index) in row.spuSaleAttrValueList"
+              v-for="item in row.spuSaleAttrValueList"
               :key="row.id"
               class="mx-1"
               closable
@@ -298,7 +298,7 @@ defineExpose({ initHasSpuData, initAddSpu })
           </template>
         </el-table-column>
         <el-table-column label="操作" width="120px">
-          <template #="{ row, $index }">
+          <template #="{ $index }">
             <el-button
               type="danger"
               size="small"
@@ -322,4 +322,3 @@ defineExpose({ initHasSpuData, initAddSpu })
     </el-form-item>
   </el-form>
 </template>
-<style lang="scss" scoped></style>

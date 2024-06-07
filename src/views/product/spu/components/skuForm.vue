@@ -136,14 +136,14 @@ defineExpose({
       <el-form :inline="true" label-width="100px">
         <el-form-item
           :label="item.attrName"
-          v-for="(item, index) in attrArr"
+          v-for="item in attrArr"
           :key="item.id"
         >
           <el-select v-model="item.attrIdAndValueId">
             <el-option
               :value="`${item.id}:${attrValue.id}`"
               :label="attrValue.valueName"
-              v-for="(attrValue, index) in item.attrValueList"
+              v-for="attrValue in item.attrValueList"
               :key="attrValue.id"
             ></el-option>
           </el-select>
@@ -154,14 +154,14 @@ defineExpose({
       <el-form :inline="true">
         <el-form-item
           :label="item.saleAttrName"
-          v-for="(item, index) in saleArr"
+          v-for="item in saleArr"
           :key="item.id"
         >
           <el-select v-model="item.saleIdAndValueId">
             <el-option
               :value="`${item.id}:${saleAttrValue.id}`"
               :label="saleAttrValue.saleAttrValueName"
-              v-for="(saleAttrValue, index) in item.spuSaleAttrValueList"
+              v-for="saleAttrValue in item.spuSaleAttrValueList"
               :key="saleAttrValue.id"
             ></el-option>
           </el-select>
@@ -176,13 +176,13 @@ defineExpose({
           align="center"
         ></el-table-column>
         <el-table-column label="图片">
-          <template #="{ row, $index }">
+          <template #="{ row }">
             <img :src="row.imgUrl" alt="" style="width: 100px; height: 100px" />
           </template>
         </el-table-column>
         <el-table-column label="名称" prop="imgName"></el-table-column>
         <el-table-column label="操作">
-          <template #="{ row, $index }">
+          <template #="{ row }">
             <el-button type="primary" size="small" @click="handler(row)">
               设置默认
             </el-button>
@@ -196,4 +196,3 @@ defineExpose({
     </el-form-item>
   </el-form>
 </template>
-<style lang="scss" scoped></style>

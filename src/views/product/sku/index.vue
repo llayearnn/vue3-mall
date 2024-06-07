@@ -33,7 +33,7 @@ const getHasSku = async (pager = 1) => {
   }
 }
 
-const handler = (pageSizes: number) => {
+const handler = (_: number) => {
   getHasSku()
 }
 

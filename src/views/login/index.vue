@@ -44,7 +44,7 @@ const loginForm = reactive({
   // username: 'admin',
   // password: '123456',
   username: 'admin',
-  password: 'atguigu123',
+  password: 'atguigu',
 })
 const userStore = useUserStore()
 const $router = useRouter()

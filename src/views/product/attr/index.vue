@@ -225,7 +225,7 @@ onBeforeUnmount(() => {
           </template>
         </el-table-column>
         <el-table-column label="属性值操作">
-          <template #="{ row, $index }">
+          <template #="{ $index }">
             <el-button
               type="danger"
               size="small"
@@ -247,4 +247,3 @@ onBeforeUnmount(() => {
     </div>
   </el-card>
 </template>
-<style lang="scss" scoped></style>

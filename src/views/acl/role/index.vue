@@ -90,7 +90,7 @@ const updateRole = (row: RoleData) => {
   })
 }
 
-const validateRoleName = (rule: any, value: any, callBack: any) => {
+const validateRoleName = (_: any, value: any, callBack: any) => {
   if (value.trim().length >= 2) {
     callBack()
   } else {
@@ -217,7 +217,7 @@ const removeRole = async (id: number) => {
         prop="updateTime"
       ></el-table-column>
       <el-table-column label="操作" width="280px" align="center">
-        <template #="{ row, $index }">
+        <template #="{ row }">
           <el-button size="small" icon="User" @click="setPermission(row)">
             分配权限
           </el-button>
