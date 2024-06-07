@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+export HUSKY_GIT_PARAMS="$*"
+node scripts/commit.mjs
 # undefined
 # pnpm commitlint
