@@ -11,7 +11,16 @@ importers:
       '@element-plus/icons-vue':
         specifier: ^2.3.1
         version: 2.3.1(vue@3.4.27(typescript@5.4.5))
+      '@unocss/preset-rem-to-px':
+        specifier: ^0.60.4
+        version: 0.60.4
       '@unocss/reset':
+        specifier: ^0.60.4
+        version: 0.60.4
+      '@unocss/transformer-directives':
+        specifier: ^0.60.4
+        version: 0.60.4
+      '@unocss/transformer-variant-group':
         specifier: ^0.60.4
         version: 0.60.4
       '@vueuse/core':
@@ -894,6 +903,9 @@ packages:
 
   '@unocss/preset-mini@0.60.4':
     resolution: {integrity: sha512-ZiHbP69vkyz0xmhqzC4B4PegwV+LPlZOBT7cRhsh0P8oPOQKYOyDRy4rAl+sJBJeIrggn1r1LgN+Z0Xvd8Ytcw==}
+
+  '@unocss/preset-rem-to-px@0.60.4':
+    resolution: {integrity: sha512-ISuIad99jyFewYTPeR1tDOk94+LW4Ry9aKNfnAi6E4AFSEW9g+5MhAsLuI/jWQA/A3uLGBI8fGSM7RhX3PxDOw==}
 
   '@unocss/preset-tagify@0.60.4':
     resolution: {integrity: sha512-GxL/W3qkdWWDqXi43qyLbp/BpEj7gMw99KqkO7bmbVi3BVlFggreTFwmQu89pB6iatxGjxnAsc+TsQZqxKftZA==}
@@ -4281,6 +4293,10 @@ snapshots:
       '@unocss/extractor-arbitrary-variants': 0.60.4
       '@unocss/rule-utils': 0.60.4
 
+  '@unocss/preset-rem-to-px@0.60.4':
+    dependencies:
+      '@unocss/core': 0.60.4
+
   '@unocss/preset-tagify@0.60.4':
     dependencies:
       '@unocss/core': 0.60.4
@@ -4975,7 +4991,7 @@ snapshots:
   css-tree@2.3.1:
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
 
   css-what@6.1.0: {}
 
