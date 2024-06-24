@@ -152,6 +152,16 @@ export const constantRoute = [
           hidden: false,
         },
       },
+      {
+        path: '/product/vxe-table',
+        component: () => import('@/views/vxe-demo/index.vue'),
+        name: 'Vxe',
+        meta: {
+          title: 'Vxe表格',
+          icon: 'Operation',
+          hidden: false,
+        },
+      },
     ],
   },
 ]
