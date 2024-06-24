@@ -12,6 +12,9 @@ import App from '@/App.vue'
 import '@/styles/index.scss'
 import router from './routers/index'
 import 'uno.css'
+// vxe-table
+import VxeTable from 'vxe-table'
+import 'vxe-table/lib/style.css'
 
 import pinia from './store'
 import './permission'
@@ -24,6 +27,7 @@ app.use(ElementPlus, {
 
 app.use(router)
 app.use(pinia)
+app.use(VxeTable)
 
 app.use(globalComponent)
 // console.log(import.meta.env)

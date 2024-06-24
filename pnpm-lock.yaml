@@ -59,6 +59,9 @@ importers:
       vue-router:
         specifier: ^4.3.2
         version: 4.3.2(vue@3.4.27(typescript@5.4.5))
+      vxe-table:
+        specifier: v4
+        version: 4.7.31
     devDependencies:
       '@babel/eslint-parser':
         specifier: ^7.24.7
@@ -1029,6 +1032,9 @@ packages:
   '@vueuse/shared@9.13.0':
     resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==}
 
+  '@vxe-ui/core@1.0.8':
+    resolution: {integrity: sha512-UpRYX3h6tHDVC06ppN0I9Disjwts5j6FPWzufpqBsn7U/doEb64ObRZ64tzkUgFjbT3uDtJS5yRkONqQHq2Ayw==}
+
   '@webassemblyjs/ast@1.11.6':
     resolution: {integrity: sha512-IN1xI7PwOvLPgjcf180gC1bqn3q/QaOCwYUahIOhbYUu8KA/3tw2RT/T0Gidi1l7Hhj5D/INhJxiICObqpMu4Q==}
 
@@ -1518,6 +1524,9 @@ packages:
 
   dom-serializer@1.4.1:
     resolution: {integrity: sha512-VHwB3KfrcOOkelEG2ZOfxqLZdfkil8PtJi4P8N2MMXucZq2yLp75ClViUlOVwyoHEDjYU433Aq+5zWP61+RGag==}
+
+  dom-zindex@1.0.4:
+    resolution: {integrity: sha512-PNk7u71TJ1C9Lwjjp5nNuQcVWuECFMmr9kZAwi2UbgWUM7jXdTCe4O4x5bhLUa07jpcZUVA5Du3ho7/FXzS9Ng==}
 
   domelementtype@1.3.1:
     resolution: {integrity: sha512-BSKB+TSpMpFI/HOxCNr1O8aMOTZ8hT3pM3GQ0w/mWRmkhEDSFJkkyzz4XQsBV44BChwGkrDfMyjVD0eA2aFV3w==}
@@ -3386,6 +3395,12 @@ packages:
       typescript:
         optional: true
 
+  vxe-pc-ui@4.0.28:
+    resolution: {integrity: sha512-iynMNhFfjCLLeJDYdtUg1FfKg+Z6nocq88rFQXI1qRTp4sH8Fy/gCCjk3MyXDhk26aZelgaegJMgkRsx0oniVg==}
+
+  vxe-table@4.7.31:
+    resolution: {integrity: sha512-WTxVTlM7tn3s5tjirL2TtY1Bpe58xKADm2pvacfKWd5vvhSABLxH+CRwRS/1B3leh0SJqjyjwcVI2KmAnay4Ew==}
+
   watchpack@2.4.0:
     resolution: {integrity: sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg==}
     engines: {node: '>=10.13.0'}
@@ -3422,6 +3437,9 @@ packages:
   wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
     engines: {node: '>=10'}
+
+  xe-utils@3.5.27:
+    resolution: {integrity: sha512-qn303MEL90Fn+1BGAfwmz+ot/3klNc9OgX3HBO5TPKHLLl+/zhfH+zrCOi7QIhvzaRiv63SSUhQE4Z1lTwmAuw==}
 
   xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
@@ -4501,6 +4519,11 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
+  '@vxe-ui/core@1.0.8':
+    dependencies:
+      dom-zindex: 1.0.4
+      xe-utils: 3.5.27
+
   '@webassemblyjs/ast@1.11.6':
     dependencies:
       '@webassemblyjs/helper-numbers': 1.11.6
@@ -5067,6 +5090,8 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 4.3.1
       entities: 2.2.0
+
+  dom-zindex@1.0.4: {}
 
   domelementtype@1.3.1: {}
 
@@ -7070,6 +7095,14 @@ snapshots:
     optionalDependencies:
       typescript: 5.4.5
 
+  vxe-pc-ui@4.0.28:
+    dependencies:
+      '@vxe-ui/core': 1.0.8
+
+  vxe-table@4.7.31:
+    dependencies:
+      vxe-pc-ui: 4.0.28
+
   watchpack@2.4.0:
     dependencies:
       glob-to-regexp: 0.4.1
@@ -7137,6 +7170,8 @@ snapshots:
       ansi-styles: 4.3.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+
+  xe-utils@3.5.27: {}
 
   xml-name-validator@4.0.0: {}
 
