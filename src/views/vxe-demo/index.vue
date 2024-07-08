@@ -7,11 +7,11 @@
       :edit-config="{ trigger: 'click', mode: 'row' }"
       :data="tableData"
     >
-      <vxe-column type="seq" width="70" title="序号"></vxe-column>
+      <vxe-column type="seq" width="70"></vxe-column>
       <vxe-column
         field="name"
         title="Name"
-        :edit-render="{ name: 'input' }"
+        :editRender="{ name: 'input' }"
       ></vxe-column>
       <vxe-column
         field="sex"
@@ -40,23 +40,15 @@
       </vxe-column>
     </vxe-table>
     <el-form mb-50>
-      <el-input
+      <el-date-picker
         v-model="text"
-        style="width: 240px"
-        maxlength="1000"
-        placeholder="Please input"
-        show-word-limit
-        type="text"
+        type="datetime"
+        value-format="YYYY-MM-DD HH:mm:ss"
+        format="YYYY-MM-DD HH:mm:ss"
+        @change="changeExpireDate"
       />
       <div style="margin: 20px 0" />
-      <el-input
-        v-model="textarea"
-        maxlength="30"
-        style="width: 240px"
-        placeholder="Please input"
-        show-word-limit
-        type="textarea"
-      />
+      <span>{{ text }}</span>
     </el-form>
     <el-badge :value="100" :max="1000" class="item">
       <el-icon size="30px"><Bell /></el-icon>
@@ -70,7 +62,7 @@
 <script lang="ts" setup>
 import { VxeTableInstance, VxeGridProps } from 'vxe-table'
 
-const text = ref('')
+const text = ref('2023-06-09 02:16:01')
 const textarea = ref('')
 interface RowVO {
   id?: number

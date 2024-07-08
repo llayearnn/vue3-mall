@@ -32,6 +32,7 @@
     "unplugin-auto-import": "^0.17.6",
     "vue": "^3.4.30",
     "vue-router": "^4.4.0",
+    "vxe-pc-ui": "v4",
     "vxe-table": "v4"
   },
   "devDependencies": {

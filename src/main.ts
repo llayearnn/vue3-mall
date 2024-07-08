@@ -15,6 +15,8 @@ import 'uno.css'
 // vxe-table
 import VxeTable from 'vxe-table'
 import 'vxe-table/lib/style.css'
+import VxeUI from 'vxe-pc-ui'
+import 'vxe-pc-ui/lib/style.css'
 
 import pinia from './store'
 import './permission'
@@ -28,6 +30,7 @@ app.use(ElementPlus, {
 app.use(router)
 app.use(pinia)
 app.use(VxeTable)
+app.use(VxeUI)
 
 app.use(globalComponent)
 // console.log(import.meta.env)
