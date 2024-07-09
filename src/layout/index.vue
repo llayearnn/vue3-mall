@@ -59,6 +59,7 @@ const LayOutSettingStore = useLayOutSettingStore()
 .layout-container-demo .el-main {
   position: absolute;
   padding: 20px;
+  padding: 5px;
   left: 200px;
   top: 60px;
   transition: all 0.3s;
