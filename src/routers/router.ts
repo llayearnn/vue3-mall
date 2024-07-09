@@ -165,7 +165,7 @@ export const constantRoute = [
       {
         path: '/product/vxe-use-demo',
         component: () => import('@/views/vue-use-demo/index.vue'),
-        name: 'Vxe',
+        name: 'VxeUse',
         meta: {
           title: 'Vxe-Use',
           icon: 'Present',

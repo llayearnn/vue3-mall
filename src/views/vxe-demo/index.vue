@@ -8,6 +8,7 @@
       :data="tableData"
     >
       <vxe-column type="seq" width="70"></vxe-column>
+      <vxe-column type="checkbox" title="多选" width="80"></vxe-column>
       <vxe-column
         field="name"
         title="Name"
