@@ -64,7 +64,7 @@
 import { VxeTableInstance, VxeGridProps } from 'vxe-table'
 
 const text = ref('2023-06-09 02:16:01')
-const textarea = ref('')
+
 interface RowVO {
   id?: number
   name: string
