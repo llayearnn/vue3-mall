@@ -2,6 +2,7 @@
 import moment from 'moment'
 import { debounce } from 'throttle-debounce'
 import { useNow } from '@vueuse/core'
+import drugList from '@/static/drug.json'
 
 const { now, pause, resume } = useNow({ controls: true })
 interface ListItem {
@@ -10,20 +11,15 @@ interface ListItem {
   [key: string]: any
 }
 
-const list = ref<ListItem[]>([])
+const list = ref<ListItem[]>([]) as any
 const options = ref<ListItem[]>([])
-const value = ref<string[]>([])
+const value = ref<string>('1794917946657607682')
 const loading = ref(false)
 onMounted(() => {
-  list.value = states.map((item, index) => {
+  list.value = drugList.map(item => {
     return {
-      value: `value:${item}`,
-      label: `${item}`,
-      name: `药${item}`,
-      ji: `${index / 2 == 0 ? '是' : '否'}`,
-      cai: `${index / 2 == 1 ? '是' : '否'}`,
-      kang: `${index / 3 == 0 ? '是' : '否'}`,
-      price: `${index * 10}`,
+      ...item,
+      label: item.drugName,
     }
   })
 })
@@ -32,12 +28,12 @@ const debounces = debounce(750, (str: string) => {
   remoteMethod(str)
 })
 const remoteMethod = (query: string) => {
-  if (query) {
+  if (query || true) {
     loading.value = true
     setTimeout(() => {
       loading.value = false
-      options.value = list.value.filter(item => {
-        return item.label.toLowerCase().includes(query.toLowerCase())
+      options.value = list.value.filter((item: any) => {
+        return item.drugName.toLowerCase().includes(query.toLowerCase())
       })
     }, 200)
   } else {
@@ -46,7 +42,9 @@ const remoteMethod = (query: string) => {
 }
 
 const changeDrugName = (val: any) => {
-  console.log(val)
+  value.value = list.value.find((item: any) => item.id == val)?.drugName
+  // console.log(val)
+  // console.log(value)
 }
 
 const states = [
@@ -125,7 +123,7 @@ const searchParam = ref({
         :remote-method="debounces"
         @change="changeDrugName"
         :loading="loading"
-        style="width: 300px"
+        style="width: 580px"
       >
         <template #header>
           <div>
@@ -143,11 +141,12 @@ const searchParam = ref({
                     <span class="text-red">显示0库存药品</span>
                   </el-checkbox>
                 </el-form-item>
+                <!-- {{ options }} -->
               </el-form>
             </div>
             <div class="flex pl-10">
               <div class="w-100">药品名称</div>
-              <div class="w-100">规格</div>
+              <div class="w-160">规格</div>
               <div class="w-50">单价</div>
               <div class="w-50">基药</div>
               <div class="w-50">集采</div>
@@ -157,20 +156,34 @@ const searchParam = ref({
         </template>
         <el-option
           v-for="item in options"
-          :key="item.value"
+          :key="item.id"
           :label="item.label"
-          :value="item.value"
+          :value="item.id"
         >
-          <div class="flex">
-            <div class="w-100">{{ item.name }}</div>
-            <div class="w-100">{{ item.label }}</div>
-            <div class="w-50">{{ item.price }}</div>
-            <div class="w-50">{{ item.ji }}</div>
-            <div class="w-50">{{ item.cai }}</div>
-            <div class="w-50">{{ item.kang }}</div>
+          <div class="flex itemTest">
+            <div class="w-100">{{ item.drugName }}</div>
+            <div class="w-160">{{ item.drugSpec }}</div>
+            <div class="w-50">{{ item.retailPrice }}</div>
+            <div class="w-50">{{ item.packageUnit }}</div>
+            <div class="w-50">{{ item.drugClass }}</div>
+            <div class="w-50">{{ item.supplierName?.slice(0, 6) }}</div>
           </div>
         </el-option>
       </el-select>
     </div>
   </div>
 </template>
+<style lang="scss" scoped>
+// ul li:nth-child(n + 2) {
+//   border-top: 1px solid var(--el-border-color-light);
+// }
+ul li {
+  padding: 0 10;
+  &:nth-child(n + 2) {
+    border-top: 1px solid var(--el-border-color-light);
+    div {
+      // border-top: 1px solid var(--el-border-color-light);
+    }
+  }
+}
+</style>
