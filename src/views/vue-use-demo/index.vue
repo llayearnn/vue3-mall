@@ -47,68 +47,91 @@ const changeDrugName = (val: any) => {
   // console.log(value)
 }
 
-const states = [
-  'Alabama',
-  'Alaska',
-  'Arizona',
-  'Arkansas',
-  'California',
-  'Colorado',
-  'Connecticut',
-  'Delaware',
-  'Florida',
-  'Georgia',
-  'Hawaii',
-  'Idaho',
-  'Illinois',
-  'Indiana',
-  'Iowa',
-  'Kansas',
-  'Kentucky',
-  'Louisiana',
-  'Maine',
-  'Maryland',
-  'Massachusetts',
-  'Michigan',
-  'Minnesota',
-  'Mississippi',
-  'Missouri',
-  'Montana',
-  'Nebraska',
-  'Nevada',
-  'New Hampshire',
-  'New Jersey',
-  'New Mexico',
-  'New York',
-  'North Carolina',
-  'North Dakota',
-  'Ohio',
-  'Oklahoma',
-  'Oregon',
-  'Pennsylvania',
-  'Rhode Island',
-  'South Carolina',
-  'South Dakota',
-  'Tennessee',
-  'Texas',
-  'Utah',
-  'Vermont',
-  'Virginia',
-  'Washington',
-  'West Virginia',
-  'Wisconsin',
-  'Wyoming',
-]
+// const states = [
+//   'Alabama',
+//   'Alaska',
+//   'Arizona',
+//   'Arkansas',
+//   'California',
+//   'Colorado',
+//   'Connecticut',
+//   'Delaware',
+//   'Florida',
+//   'Georgia',
+//   'Hawaii',
+//   'Idaho',
+//   'Illinois',
+//   'Indiana',
+//   'Iowa',
+//   'Kansas',
+//   'Kentucky',
+//   'Louisiana',
+//   'Maine',
+//   'Maryland',
+//   'Massachusetts',
+//   'Michigan',
+//   'Minnesota',
+//   'Mississippi',
+//   'Missouri',
+//   'Montana',
+//   'Nebraska',
+//   'Nevada',
+//   'New Hampshire',
+//   'New Jersey',
+//   'New Mexico',
+//   'New York',
+//   'North Carolina',
+//   'North Dakota',
+//   'Ohio',
+//   'Oklahoma',
+//   'Oregon',
+//   'Pennsylvania',
+//   'Rhode Island',
+//   'South Carolina',
+//   'South Dakota',
+//   'Tennessee',
+//   'Texas',
+//   'Utah',
+//   'Vermont',
+//   'Virginia',
+//   'Washington',
+//   'West Virginia',
+//   'Wisconsin',
+//   'Wyoming',
+// ]
 const searchParam = ref({
   query: '',
   checkAll: false,
 })
+const test = async () => {
+  const { flag } = await Demo()
+  console.log('flag', flag)
+
+  console.log(22222)
+}
+const { resolve, promise } = Promise.withResolvers()
+const Demo = (): any => {
+  setTimeout(() => {
+    resolve({
+      flag: true,
+    })
+  }, 3000)
+  return promise
+  // return new Promise(resolve => {
+  //   setTimeout(() => {
+  //     resolve({
+  //       flag: true,
+  //     })
+  //   }, 2000)
+  // })
+}
 </script>
 
 <template>
   <div>
     <el-button @click="pause()" type="primary">Pause</el-button>
     <el-button @click="resume()">Resume</el-button>
+    <el-button @click="test()">promise</el-button>
 
     <h1 text-black absolute right-0 top-0>
       {{ moment(now).format('YYYY-MM-DD HH:mm:ss') }}

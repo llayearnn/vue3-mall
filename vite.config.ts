@@ -55,7 +55,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       },
     },
     server: {
-      port: 8080,
+      port: 8088,
       open: true,
       host: 'localhost',
       proxy: {
