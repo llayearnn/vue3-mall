@@ -21,7 +21,7 @@ declare global {
   const get: typeof import('@/utils')['get']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
-  const getSelectLabel: typeof import('./src/utils/selectOperate')['getSelectLabel']
+  const getSelectLabel: typeof import('@/utils/index.ts')['getSelectLabel']
   const getTime: typeof import('./src/utils/time')['getTime']
   const h: typeof import('vue')['h']
   const inject: typeof import('vue')['inject']
@@ -96,9 +96,6 @@ declare module 'vue' {
     readonly ElMessage: UnwrapRef<typeof import('element-plus')['ElMessage']>
     readonly ElMessageBox: UnwrapRef<typeof import('element-plus')['ElMessageBox']>
     readonly ElNotification: UnwrapRef<typeof import('element-plus')['ElNotification']>
-    readonly GET_TOKEN: UnwrapRef<typeof import('./src/utils/token')['GET_TOKEN']>
-    readonly REMOVE_TOKEN: UnwrapRef<typeof import('./src/utils/token')['REMOVE_TOKEN']>
-    readonly SET_TOKEN: UnwrapRef<typeof import('./src/utils/token')['SET_TOKEN']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
@@ -107,8 +104,7 @@ declare module 'vue' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
-    readonly getSelectLabel: UnwrapRef<typeof import('./src/utils/selectOperate')['getSelectLabel']>
-    readonly getTime: UnwrapRef<typeof import('./src/utils/time')['getTime']>
+    readonly getSelectLabel: UnwrapRef<typeof import('@/utils/index.ts')['getSelectLabel']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
@@ -136,7 +132,6 @@ declare module 'vue' {
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
-    readonly request: UnwrapRef<typeof import('./src/utils/request')['default']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
@@ -154,12 +149,10 @@ declare module 'vue' {
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
-    readonly utils: UnwrapRef<typeof import('./src/utils/index')['default']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
     readonly watchSyncEffect: UnwrapRef<typeof import('vue')['watchSyncEffect']>
-    readonly withInstall: UnwrapRef<typeof import('./src/utils/withInstall')['withInstall']>
   }
 }
 declare module '@vue/runtime-core' {
@@ -169,9 +162,6 @@ declare module '@vue/runtime-core' {
     readonly ElMessage: UnwrapRef<typeof import('element-plus')['ElMessage']>
     readonly ElMessageBox: UnwrapRef<typeof import('element-plus')['ElMessageBox']>
     readonly ElNotification: UnwrapRef<typeof import('element-plus')['ElNotification']>
-    readonly GET_TOKEN: UnwrapRef<typeof import('./src/utils/token')['GET_TOKEN']>
-    readonly REMOVE_TOKEN: UnwrapRef<typeof import('./src/utils/token')['REMOVE_TOKEN']>
-    readonly SET_TOKEN: UnwrapRef<typeof import('./src/utils/token')['SET_TOKEN']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
@@ -180,8 +170,7 @@ declare module '@vue/runtime-core' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
-    readonly getSelectLabel: UnwrapRef<typeof import('./src/utils/selectOperate')['getSelectLabel']>
-    readonly getTime: UnwrapRef<typeof import('./src/utils/time')['getTime']>
+    readonly getSelectLabel: UnwrapRef<typeof import('@/utils/index.ts')['getSelectLabel']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
@@ -209,7 +198,6 @@ declare module '@vue/runtime-core' {
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
-    readonly request: UnwrapRef<typeof import('./src/utils/request')['default']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
@@ -227,11 +215,9 @@ declare module '@vue/runtime-core' {
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
-    readonly utils: UnwrapRef<typeof import('./src/utils/index')['default']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
     readonly watchSyncEffect: UnwrapRef<typeof import('vue')['watchSyncEffect']>
-    readonly withInstall: UnwrapRef<typeof import('./src/utils/withInstall')['withInstall']>
   }
 }

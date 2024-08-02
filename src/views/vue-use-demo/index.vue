@@ -22,7 +22,7 @@ onMounted(() => {
       label: item.drugName,
     }
   })
-  // console.log(getSelectLabel)
+  console.log(getSelectLabel)
 })
 
 const debounces = debounce(750, (str: string) => {
@@ -68,7 +68,7 @@ const Demo = (): any => {
   return promise
 }
 const firstFlag = ref(false)
-const show = (val: boolean, res: any) => {
+const show = (val: boolean, _res: any) => {
   firstFlag.value &&
     ElMessage[`${val ? 'success' : 'error'}`](
       `div1${val ? '出现了' : '消失了'}`,
