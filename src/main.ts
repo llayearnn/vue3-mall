@@ -20,6 +20,8 @@ import 'vxe-pc-ui/lib/style.css'
 
 import pinia from './store'
 import './permission'
+// 指令
+import directive from './directive'
 
 const app = createApp(App)
 
@@ -31,6 +33,7 @@ app.use(router)
 app.use(pinia)
 app.use(VxeTable)
 app.use(VxeUI)
+app.use(directive)
 
 app.use(globalComponent)
 // console.log(import.meta.env)
