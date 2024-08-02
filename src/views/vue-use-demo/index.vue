@@ -22,6 +22,7 @@ onMounted(() => {
       label: item.drugName,
     }
   })
+  // console.log(getSelectLabel)
 })
 
 const debounces = debounce(750, (str: string) => {
@@ -43,62 +44,8 @@ const remoteMethod = (query: string) => {
 
 const changeDrugName = (val: any) => {
   value.value = list.value.find((item: any) => item.id == val)?.drugName
-  // console.log(val)
-  // console.log(value)
 }
 
-// const states = [
-//   'Alabama',
-//   'Alaska',
-//   'Arizona',
-//   'Arkansas',
-//   'California',
-//   'Colorado',
-//   'Connecticut',
-//   'Delaware',
-//   'Florida',
-//   'Georgia',
-//   'Hawaii',
-//   'Idaho',
-//   'Illinois',
-//   'Indiana',
-//   'Iowa',
-//   'Kansas',
-//   'Kentucky',
-//   'Louisiana',
-//   'Maine',
-//   'Maryland',
-//   'Massachusetts',
-//   'Michigan',
-//   'Minnesota',
-//   'Mississippi',
-//   'Missouri',
-//   'Montana',
-//   'Nebraska',
-//   'Nevada',
-//   'New Hampshire',
-//   'New Jersey',
-//   'New Mexico',
-//   'New York',
-//   'North Carolina',
-//   'North Dakota',
-//   'Ohio',
-//   'Oklahoma',
-//   'Oregon',
-//   'Pennsylvania',
-//   'Rhode Island',
-//   'South Carolina',
-//   'South Dakota',
-//   'Tennessee',
-//   'Texas',
-//   'Utah',
-//   'Vermont',
-//   'Virginia',
-//   'Washington',
-//   'West Virginia',
-//   'Wisconsin',
-//   'Wyoming',
-// ]
 const searchParam = ref({
   query: '',
   checkAll: false,
@@ -109,21 +56,24 @@ const test = async () => {
 
   console.log(22222)
 }
-const { resolve, promise } = Promise.withResolvers()
+
 const Demo = (): any => {
+  const { resolve, promise } = Promise.withResolvers()
   setTimeout(() => {
     resolve({
       flag: true,
     })
   }, 3000)
+  console.log('promise ', promise)
   return promise
-  // return new Promise(resolve => {
-  //   setTimeout(() => {
-  //     resolve({
-  //       flag: true,
-  //     })
-  //   }, 2000)
-  // })
+}
+const firstFlag = ref(false)
+const show = (val: boolean, res: any) => {
+  firstFlag.value &&
+    ElMessage[`${val ? 'success' : 'error'}`](
+      `div1${val ? '出现了' : '消失了'}`,
+    )
+  firstFlag.value = true
 }
 </script>
 
@@ -194,19 +144,15 @@ const Demo = (): any => {
         </el-option>
       </el-select>
     </div>
+    <div v-intersect="show" class="w-500 h-550 bgc-000">1</div>
+    <div class="w-500 h-650 mt-10 bgc-e44">2</div>
   </div>
 </template>
 <style lang="scss" scoped>
-// ul li:nth-child(n + 2) {
-//   border-top: 1px solid var(--el-border-color-light);
-// }
 ul li {
   padding: 0 10;
   &:nth-child(n + 2) {
     border-top: 1px solid var(--el-border-color-light);
-    div {
-      // border-top: 1px solid var(--el-border-color-light);
-    }
   }
 }
 </style>
