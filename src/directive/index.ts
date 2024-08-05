@@ -1,10 +1,12 @@
 import type { App, Plugin } from 'vue'
 import intersect from './intersect'
+import resize from './resize'
 
 import { ClickOutside } from 'element-plus'
 
 const arr = [
   { name: 'intersect', value: intersect },
+  { name: 'resize', value: resize },
   { name: 'clickOutside', value: ClickOutside },
 ]
 

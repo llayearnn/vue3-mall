@@ -22,7 +22,6 @@ onMounted(() => {
       label: item.drugName,
     }
   })
-  console.log(getSelectLabel)
 })
 
 const debounces = debounce(750, (str: string) => {
@@ -75,6 +74,10 @@ const show = (val: boolean, _res: any) => {
     )
   firstFlag.value = true
 }
+
+const changeSize = debounce(300, async (params: any) => {
+  console.log(params)
+})
 </script>
 
 <template>
@@ -144,8 +147,21 @@ const show = (val: boolean, _res: any) => {
         </el-option>
       </el-select>
     </div>
-    <div v-intersect="show" class="w-500 h-550 bgc-000">1</div>
-    <div class="w-500 h-650 mt-10 bgc-e44">2</div>
+    <div
+      style="border: 1px dashed black"
+      v-intersect="show"
+      class="w-500 h-550"
+    >
+      1
+    </div>
+    <div style="border: 1px dashed red" class="w-500 h-650 mt-10">2</div>
+    <div
+      v-resize="changeSize"
+      style="border: 1px dashed green"
+      class="w-40% h-200 mt-10 resize"
+    >
+      3
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
