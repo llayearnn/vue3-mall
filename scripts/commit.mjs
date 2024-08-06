@@ -9,9 +9,8 @@ const commitRE1 =
   /^(revert: )?(feat|init|merge|fix|docs|dx|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release)(\(.+\))?: .{1,50}/
 
 if (!commitRE.test(msg) && !commitRE1.test(msg)) {
-  console.log()
   console.error(
-    `  ${pico.red(' ERROR ')} ${pico.red(`	invalid commit message format.`)}\n\n` +
+    ` ${pico.red(' ERROR ')} ${pico.red(`	invalid commit message format.`)}\n\n` +
       pico.red(
         `Proper commit message format is required for automated changelog generation. Examples:\n\n`,
       ) +
