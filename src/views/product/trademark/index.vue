@@ -29,14 +29,18 @@ let trademarkParams = reactive<TradeMark>({
 let formRef = ref()
 const getHasTradeMark = async (pager = 1) => {
   pageNo.value = pager
-  let res: TradeMarkResponseData = await reqHasTradeMark(
-    pageNo.value,
-    limit.value,
-  )
+  try {
+    let res: TradeMarkResponseData = await reqHasTradeMark(
+      pageNo.value,
+      limit.value,
+    )
 
-  if (res.code === 200) {
-    total.value = res.data.total
-    tradeMarkArr.value = res.data.records
+    if (res.code === 200) {
+      total.value = res.data.total
+      tradeMarkArr.value = res.data.records
+    }
+  } catch (error) {
+    console.log(error)
   }
 }
 
@@ -92,7 +96,7 @@ const confirm = async () => {
   }
 }
 
-const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
+const beforeAvatarUpload: UploadProps['beforeUpload'] = rawFile => {
   if (
     rawFile.type === 'image/png' ||
     rawFile.type === 'image/jpeg' ||
@@ -115,7 +119,7 @@ const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
   }
 }
 
-const handleAvatarSuccess: UploadProps['onSuccess'] = (response) => {
+const handleAvatarSuccess: UploadProps['onSuccess'] = response => {
   trademarkParams.logoUrl = response.data
   formRef.value.clearValidate('logoUrl')
 }

@@ -21,9 +21,9 @@ watch(
 <template>
   <!-- 路由组件出口的位置 -->
   <router-view v-slot="{ Component }">
-    <transition name="fade">
-      <component :is="Component" v-if="flag" />
-    </transition>
+    <!-- <transition name="fade"> -->
+    <component :is="Component" v-if="flag" />
+    <!-- </transition> -->
   </router-view>
 </template>
 <style lang="scss" scoped>
