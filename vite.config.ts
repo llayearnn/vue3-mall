@@ -1,6 +1,6 @@
 import { ConfigEnv, UserConfigExport, loadEnv } from 'vite'
 import AutoImport from './autoImport.js'
-import { viteMockServe } from 'vite-plugin-mock'
+// import { viteMockServe } from 'vite-plugin-mock'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 
@@ -8,7 +8,7 @@ import { resolve } from 'path'
 // 引入svg
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // https://vitejs.dev/config/
-export default ({ command, mode }: ConfigEnv): UserConfigExport => {
+export default ({ mode }: ConfigEnv): UserConfigExport => {
   // 获取各种环境下对应的变量；process.cwd()表示项目根目录
   const env = loadEnv(mode, process.cwd())
   console.log(' env', env)

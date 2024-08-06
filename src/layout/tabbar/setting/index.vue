@@ -7,19 +7,19 @@ import {
   ArrowDown,
 } from '@element-plus/icons-vue'
 import useLayOutSettingStore from '@/store/modules/setting'
-let layoutSettingStore = useLayOutSettingStore()
+const layoutSettingStore = useLayOutSettingStore()
 import { useUserStore } from '@/store/modules/user'
 import { useRouter, useRoute } from 'vue-router'
-let $router = useRouter()
-let $route = useRoute()
+const $router = useRouter()
+const $route = useRoute()
 const userStore = useUserStore()
-let dark = ref<boolean>(false)
+const dark = ref<boolean>(false)
 const updateRefresh = () => {
   layoutSettingStore.refresh = !layoutSettingStore.refresh
 }
 
 const fullScreen = () => {
-  let full = document.fullscreenElement
+  const full = document.fullscreenElement
   if (!full) {
     document.documentElement.requestFullscreen()
   } else {
@@ -52,12 +52,13 @@ const predefineColors = ref([
 ])
 
 const changeDark = () => {
-  let html = document.documentElement
-  dark.value ? (html.className = 'dark') : (html.className = '')
+  const html = document.documentElement
+  html.className = dark.value ? 'dark' : ''
+  // dark.value ? (html.className = 'dark') : (html.className = '')
 }
 
 const setColor = () => {
-  let html = document.documentElement
+  const html = document.documentElement
   html.style.setProperty('--el-color-primary', color.value)
 }
 </script>
