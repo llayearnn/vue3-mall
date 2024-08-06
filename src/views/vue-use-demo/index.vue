@@ -82,7 +82,6 @@ const count = ref(4)
 
 const load = () => {
   loading.value = true
-  console.log('times')
   setTimeout(() => {
     count.value += 2
     loading.value = false
