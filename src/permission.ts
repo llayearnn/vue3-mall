@@ -27,7 +27,7 @@ router.beforeEach(async (to, from, next) => {
       } else {
         try {
           // await userStore.userInfo()
-          next({ path: '/home' })
+          next()
           // next({ ...to })
           // token 过期
         } catch (error) {
