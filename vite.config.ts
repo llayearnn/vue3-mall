@@ -1,4 +1,5 @@
 import { ConfigEnv, UserConfigExport, loadEnv } from 'vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from './autoImport.js'
 // import { viteMockServe } from 'vite-plugin-mock'
 import vue from '@vitejs/plugin-vue'
@@ -23,6 +24,11 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
         symbolId: 'icon-[dir]-[name]',
+      }),
+      visualizer({
+        emitFile: false,
+        filename: 'stats.html', //分析图生成的文件名
+        open: true, //如果存在本地服务端口，将在打包后自动展示
       }),
       // viteMockServe({
       //   localEnabled: command === 'serve', // 保证开发阶段可以用mock
