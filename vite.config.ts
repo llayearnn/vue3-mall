@@ -14,7 +14,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   const env = loadEnv(mode, process.cwd())
   console.log(' env', env)
   return {
-    base: '/',
+    base: './',
     build: {
       minify: false,
     },
