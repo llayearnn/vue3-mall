@@ -19,7 +19,7 @@ import VxeUI from 'vxe-pc-ui'
 import 'vxe-pc-ui/lib/style.css'
 
 import pinia from './store'
-import './permission'
+// import './permission'
 // 指令
 import directive from './directive'
 
