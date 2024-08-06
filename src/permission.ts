@@ -17,6 +17,7 @@ router.beforeEach(async (to, from, next) => {
   // 判断用户有没有登录
 
   if (!token) {
+    console.log('token ', token)
     // 如果登录成功还想访问登录页，则不允许。重定向到首页
     if (to.path === '/login') {
       next({ path: '/' })
@@ -37,6 +38,7 @@ router.beforeEach(async (to, from, next) => {
     }
   } else {
     if (to.path == '/login') {
+      console.log('1111111 ', 111111111)
       next()
     } else {
       // 未登录直接先指向登录页面 ，同时用query缓存他想要区得页面
