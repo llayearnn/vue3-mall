@@ -48,7 +48,7 @@ const loginForm = reactive({
 })
 const userStore = useUserStore()
 const $router = useRouter()
-let $route = useRoute()
+const $route = useRoute()
 
 const login = async () => {
   try {
@@ -60,7 +60,7 @@ const login = async () => {
         title: `Hi,${getTime()}好`,
       })
       // 判断有没有query参数 如果有则重定向
-      let redirect: string = $route.query.redirect as string
+      const redirect: string = $route.query.redirect as string
       $router.push({ path: redirect || '/' })
       // $router.push('./')
     } else {
@@ -68,6 +68,7 @@ const login = async () => {
       // ElMessage.error('登录失败, 密码错误.')
     }
   } catch (error) {
+    console.log(' error', error)
     ElMessage.error('登录失败, 密码错误.')
   }
 }

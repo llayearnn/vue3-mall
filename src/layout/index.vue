@@ -7,8 +7,8 @@ import useLayOutSettingStore from '@/store/modules/setting'
 import { useUserStore } from '@/store/modules/user'
 import { useRoute } from 'vue-router'
 
-let userStore = useUserStore()
-let $route = useRoute()
+const userStore = useUserStore()
+const $route = useRoute()
 
 const LayOutSettingStore = useLayOutSettingStore()
 </script>
