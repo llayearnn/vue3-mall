@@ -15,6 +15,9 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   console.log(' env', env)
   return {
     base: './',
+    build: {
+      minify: false,
+    },
     plugins: [
       vue(),
       UnoCSS(),

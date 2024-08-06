@@ -40,15 +40,15 @@ export const constantRoute = [
       icon: 'Platform',
     },
   },
-  // {
-  //   path: '/404',
-  //   component: () => import('@/views/404/index.vue'),
-  //   name: '404', //命名路由
-  //   meta: {
-  //     title: '404',
-  //     hidden: true,
-  //   },
-  // },
+  {
+    path: '/404',
+    component: () => import('@/views/404/index.vue'),
+    name: '404', //命名路由
+    meta: {
+      title: '404',
+      hidden: true,
+    },
+  },
   {
     path: '/:pathMatch(.*)*', // 没有匹配上路由 重定向到404
     redirect: '/404',
