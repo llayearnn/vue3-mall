@@ -2,6 +2,6 @@
 export default {
   title: 'Lay-Admin',
   // logo: '/logo.png',
-  logo: '/logo1.jpeg',
+  logo: './logo1.jpeg',
   logoHidden: true,
 }
