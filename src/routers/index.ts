@@ -2,7 +2,7 @@ import {
   createRouter,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createWebHashHistory,
-  createWebHistory,
+  // createWebHistory,
 } from 'vue-router'
 import { constantRoute } from './router'
 
