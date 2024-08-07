@@ -38,7 +38,7 @@ importers:
       element-plus:
         specifier: ^2.7.8
         version: 2.7.8(vue@3.4.35(typescript@5.5.4))
-      lodash:
+      lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
       moment:
