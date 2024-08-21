@@ -16,18 +16,18 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
   return {
     base: './',
     build: {
-      minify: false,
+      // minify: false,
       // 在这里配置打包时的rollup配置
-      // rollupOptions: {
-      //   output: {
-      //     // 拆分块
-      //     manualChunks: id => {
-      //       if (id.includes('node_modules')) {
-      //         return 'vendor'
-      //       }
-      //     },
-      //   },
-      // },
+      rollupOptions: {
+        output: {
+          // 拆分块
+          manualChunks: id => {
+            if (id.includes('node_modules')) {
+              return 'vendor'
+            }
+          },
+        },
+      },
     },
     plugins: [
       vue(),
